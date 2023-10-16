@@ -307,5 +307,11 @@ function run_mySQL_cb($callback, $dbInfo=DB_CONNECT){
 
 };
 
+function db_error($connection){
+    $error = mysqli_error($connection);
+    SQLError($error);
+    return ["succes" => false, "data" => $error];
+};
+
 
 ?>
