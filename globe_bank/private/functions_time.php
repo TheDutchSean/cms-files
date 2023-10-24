@@ -5,17 +5,25 @@
 
         $date = getdate();
 
+        if($date['mon'] < 10){
+            $date['mon'] = "0".$date['mon'];
+        }
+
+        if($date['mday'] < 10){
+            $date['mday'] = "0".$date['mday'];
+        }
+
         switch($format){               
             case 1:
-                return $date['year'].'-'.$date['month'].'-'.$date['mday'];   
+                return $date['year'].'-'.$date['mon'].'-'.$date['mday'];   
             case 2:
-                return $date['year'].'/'.$date['month'].'/'.$date['mday'];
+                return $date['year'].'/'.$date['mon'].'/'.$date['mday'];
             case 3:
-                return $date['mday'].'-'.$date['month'].'-'.$date['year'];   
+                return $date['mday'].'-'.$date['mon'].'-'.$date['year'];   
             case 4:
-                return $date['mday'].'/'.$date['month'].'/'.$date['year']; 
+                return $date['mday'].'/'.$date['mon'].'/'.$date['year']; 
             default:
-                return $date['year'].$date['month'].$date['mday'];
+                return $date['year'].$date['mon'].$date['mday'];
         }
     };
 
@@ -24,6 +32,14 @@
     function getTime($format = 0){      
 
         $time = getDate();
+
+        if($time['hours'] < 10){
+            $time['hours'] = "0".$time['hours'];
+        }
+
+        if($time['minutes'] < 10){
+            $time['minutes'] = "0".$time['minutes'];
+        }
 
         switch($format){
             case 1:
@@ -38,5 +54,7 @@
                 return $time['hours'].':'.$time['minutes'].':'.$time['seconds'];
         }
     };
+
+
 
 ?>
