@@ -5,6 +5,7 @@ $response = db_query($getSubjects);
 
 if($response["succes"]){
   $subjects =  $response['data']; 
+
   $positions = [];
   foreach($subjects as $subject){
 
@@ -27,19 +28,7 @@ if($response["succes"]){
 
 <script>
   
-  const positions = {
-    <?php 
-      $pos_count = count($positions);
-
-      for($i = 0; $i < $pos_count;$i++){
-        echo $positions[$i]['id'].":".$positions[$i]['count'].",\n";
-        if($i == $pos_count - 1){
-          echo $positions[$i]['id'].":".$positions[$i]['count']."\n";
-        };
-      };
-
-    ?>
-  };
+  const positions = <?php echo json_encode($positions) ?>;
 
 </script>
 <script src="<?php echo url_for('/scripts/positions_options.js');?>" type="module" defer></script>
