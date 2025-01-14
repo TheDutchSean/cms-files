@@ -2,13 +2,13 @@ mysql -u root
 
 CREATE DATABASE globe_bank;
 
-CREATE USER 'azykiel'@'localhost' IDENTIFIED BY 'myGlobeBank@2023';
+CREATE USER 'myUser'@'localhost' IDENTIFIED BY 'myPassword';
 
-GRANT ALL PRIVILEGES ON globe_bank.* TO 'azykiel'@'localhost';
+GRANT ALL PRIVILEGES ON globe_bank.* TO 'myUser'@'localhost';
 
 exit;
 
-mysql -u azykiel -p
+mysql -u myUser -p
 
 *enter password manualy no pasting*
 
